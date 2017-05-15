@@ -14,7 +14,8 @@ void *pthreadhello(void *threadid) {
    pthread_exit(NULL);
 }
 
-int main(int argc, const char* argv[]) {
+void toto(void) {
+
   pthread_t threads[NUM_THREADS];
   int rc;
 
@@ -30,6 +31,13 @@ int main(int argc, const char* argv[]) {
   for (long t=0; t<NUM_THREADS; t++) {
     pthread_join(threads[t], NULL);
   }
+}
 
+
+int main(int argc, const char* argv[]) {
+
+  for (int i=0; i<10000; i++) {
+	  toto();
+  }
   return 0;
 }
